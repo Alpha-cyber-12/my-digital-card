@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S.K ENTERPRISES - Digital Business Card</title>
     <!-- Load custom fonts from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,9 +11,204 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Lato', sans-serif;
+            color: #ffffff;
+            background-color: #0c0c1b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .card-container {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 2.5rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .premium-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .italic-text {
+            font-style: italic;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="card-container">
+        <!-- Company Logo -->
+        <div class="mx-auto w-24 h-24 mb-4 rounded-full overflow-hidden border-4 border-white shadow-xl bg-gray-200 flex items-center justify-center animated-logo">
+            <img src="https://placehold.co/112x112/0c0c1b/e0e0e0?text=SKE" alt="S.K ENTERPRISES Logo" class="object-cover w-full h-full" />
+        </div>
+
+        <!-- Company Name -->
+        <h2 class="premium-font text-3xl font-semibold text-gray-100 tracking-wide mb-1">S.K ENTERPRISES</h2>
+
+        <!-- Separator line for visual break -->
+        <div class="w-16 h-1 bg-blue-400 rounded-full mx-auto my-6"></div>
+
+        <!-- Name and Title -->
+        <h1 class="premium-font text-4xl font-bold text-gray-100 leading-tight tracking-wide mb-1 uppercase">VIKAS AGARWAL</h1>
+        <p class="text-lg md:text-xl text-blue-300 uppercase tracking-widest mb-6 italic-text">Proprietor</p>
+
+        <!-- A short, professional bio -->
+        <p class="text-gray-300 mb-8 max-w-sm mx-auto">
+            Dedicated business owner committed to excellence and strategic growth. Let's connect and build something great.
+        </p>
+
+        <!-- Contact Information Section -->
+        <div class="space-y-4 text-center mx-auto max-w-xs">
+            <!-- Email Link -->
+            <div class="flex items-center justify-center space-x-4">
+                <svg class="w-6 h-6 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 4.99-8-4.99V6h16zm-16 12V9.489l7.447 4.654a.996.996 0 001.106 0L20 9.489V18H4z"></path>
+                </svg>
+                <a href="mailto:Vikasagarwal183@gmail.com" class="text-gray-200 hover:text-blue-400 transition duration-200 font-medium">Vikasagarwal183@gmail.com</a>
+            </div>
+
+            <!-- Phone/WhatsApp Link -->
+            <div class="flex items-center justify-center space-x-4">
+                <svg class="w-6 h-6 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6.62 10.79a15.088 15.088 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.11-.21c1.2.48 2.5.74 3.86.74a1 1 0 011 1v3.5a1 1 0 01-1 1C7.92 21.41 2.59 16.08 2.59 9a1 1 0 011-1h3.5a1 1 0 011 1c0 1.36.26 2.66.73 3.79a1 1 0 01-.2 1.11l-2.2 2.2z"></path>
+                </svg>
+                <a href="https://wa.me/919811107598" target="_blank" rel="noopener" class="text-gray-200 hover:text-blue-400 transition duration-200 font-medium">+91 9811107598</a>
+            </div>
+
+            <!-- Address -->
+            <div class="flex items-start justify-center space-x-4">
+                <svg class="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 3.75 5 11 7 13 2-2 7-9.25 7-13 0-3.87-3.13-7-7-7zM12 11.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"></path>
+                </svg>
+                <span class="text-gray-200 font-medium">B-2/50, D.S.I.D.C. Industrial Compound, Jhilmil Industrial Area, Delhi - 110095</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const canvas = document.getElementById('bg-canvas');
+            const ctx = canvas.getContext('2d');
+            let blobs = [];
+
+            // Set canvas size
+            function setCanvasSize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            setCanvasSize();
+            window.addEventListener('resize', setCanvasSize);
+
+            // Blob class
+            class Blob {
+                constructor(x, y, radius, color, velocity) {
+                    this.x = x;
+                    this.y = y;
+                    this.radius = radius;
+                    this.color = color;
+                    this.velocity = {
+                        x: velocity.x,
+                        y: velocity.y
+                    };
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                    ctx.closePath();
+                }
+
+                update() {
+                    if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+                        this.velocity.x = -this.velocity.x;
+                    }
+                    if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
+                        this.velocity.y = -this.velocity.y;
+                    }
+                    this.x += this.velocity.x;
+                    this.y += this.velocity.y;
+
+                    this.draw();
+                }
+            }
+
+            // Create blobs
+            function createBlobs() {
+                const colors = ['rgba(13, 202, 240, 0.4)', 'rgba(255, 255, 255, 0.4)', 'rgba(59, 130, 246, 0.4)'];
+                for (let i = 0; i < 5; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height;
+                    const radius = Math.random() * 200 + 100;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const velocity = {
+                        x: (Math.random() - 0.5) * 0.5,
+                        y: (Math.random() - 0.5) * 0.5
+                    };
+                    blobs.push(new Blob(x, y, radius, color, velocity));
+                }
+            }
+
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                blobs.forEach(blob => {
+                    blob.update();
+                });
+
+                // Glassmorphism background effect on top of blobs
+                ctx.save();
+                ctx.filter = 'blur(50px)';
+                ctx.fillStyle = 'rgba(12, 12, 27, 0.5)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.restore();
+            }
+
+            createBlobs();
+            animate();
+        };
+    </script>
+</body>
+
 </html>
